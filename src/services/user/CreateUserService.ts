@@ -12,6 +12,7 @@ class CreateUserService{
     async create({name, email, password}: UserRequest){
 
         //verificar se o email já existe no banco
+        //prismaClient.user vai acessar a table de users e realizar a função que foi passada
         const userAlreadyExists = await prismaClient.user.findFirst({
             where:{
                 email: email
